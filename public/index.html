@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="min-h-screen p-4">
+    <main class="max-w-md mx-auto mt-6 border rounded shadow-sm p-6" data-page="register">
+      <h1 class="font-semibold tac text-max" style="margin:0;">👋😊</h1>
+      <p class="tac">Welcome! Submit the form below to participate in the raffle.</p>
+      <form id="register-form" class="mt-2 space-y-3">
+        <div>
+          <input class="input mt-2" id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+        </div>
+        <button class="btn mt-3" id="register-button" type="submit">Register</button>
+      </form>
+      <p id="register-message" class="mt-4 text-sm"></p>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

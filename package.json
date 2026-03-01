@@ -1,0 +1,16 @@
+{
+  "name": "book-raffle",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node server/index.js",
+    "generate:qr": "node scripts/generate-qr.js",
+    "release": "gcloud builds submit --config cloudbuild.yaml"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongodb": "^6.15.0",
+    "qrcode": "^1.5.4"
+  }
+}
