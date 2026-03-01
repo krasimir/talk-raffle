@@ -107,3 +107,35 @@ Example iframe snippets:
 - `/screen/draw` supports multiple winners: each picked winner is stored in browser memory and excluded from subsequent draws.
 - `/screen/draw` includes a simple likes-over-time chart (5-second buckets from presentation start).
 - Current setup uses a repo file (`secrets/config.js`) for Mongo settings.
+
+## Screenshots
+
+### Registration screen
+
+Attendees enter their name to join the raffle and receive a generated raffle identity.
+
+![Registration screen](shots/registration.png)
+
+### Like screen
+
+After registration, attendees use the big heart button to send likes during the talk.
+
+![Like screen](shots/like.png)
+
+### Presenter screen
+
+Presenter-only page for authentication, starting the presentation timer, and managing raffle controls.
+
+![Presenter screen](shots/presenter.png)
+
+### Draw screen
+
+Public live draw screen with participants, winner picks, likes timeline, and activity leaderboard.
+
+![Draw screen](shots/draw.png)
+
+### QR screen
+
+Presentation-friendly screen that shows the QR code for quick attendee registration.
+
+![QR screen](shots/qr.png)
