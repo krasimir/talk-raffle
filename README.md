@@ -10,13 +10,25 @@
 
 - Backend: Node.js + Express
 - Frontend: Vanilla JavaScript, HTML, CSS utility classes
-- Storage: MongoDB only (configured in `secrets/config.js`)
+- Storage: MongoDB only (configured via env vars or optional local `secrets/config.js`)
 
 ## Environment variables
 
 - `PORT` (optional, default: `3000`)
+- `PRESENTER_PIN` (required if `secrets/config.js` is not present)
+- `MONGO_URI` (required if `secrets/config.js` is not present)
+- `MONGO_DB_NAME` (optional, default: `raffle`)
+- `MONGO_COLLECTION` (optional, default: `raffle_entries`)
 
-Core app settings are loaded from `secrets/config.js`:
+You can use a local untracked file for development by copying:
+
+```bash
+cp secrets/config.example.js secrets/config.js
+```
+
+For Docker/Cloud Run, prefer environment variables.
+
+Optional local `secrets/config.js` keys:
 
 - `presenterPin`
 - `mongo.uri`
@@ -35,6 +47,12 @@ Core app settings are loaded from `secrets/config.js`:
 
    ```bash
    npm start
+   ```
+
+   Or run without `secrets/config.js` by using env vars:
+
+   ```bash
+   PRESENTER_PIN=8225 MONGO_URI="<mongo-uri>" npm start
    ```
 
 3. Open:
@@ -58,6 +76,19 @@ Optional custom output:
 
 ```bash
 RAFFLE_PUBLIC_URL="https://your-domain.com/" QR_OUTPUT="public/my-qr.png" npm run generate:qr
+```
+
+## Docker
+
+Run the container with env vars:
+
+```bash
+docker run --rm -p 3000:8080 \
+   -e PRESENTER_PIN=8225 \
+   -e MONGO_URI="<mongo-uri>" \
+   -e MONGO_DB_NAME=raffle \
+   -e MONGO_COLLECTION=raffle_entries \
+   talk-raffle
 ```
 
 ## Iframe pages for presentation
